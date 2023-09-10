@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.bigh1{
+	text-align : center;
+	margin: 200px;
+}
+.Lname{
+	font-size: x-large;
+}
+
+#id{
+	height: 80px;
+	width: 500px;
+	font-size: medium;
+	border-radius: 10px;
+}
+#pw{
+	height: 80px;
+	width: 500px;
+	font-size: medium;
+	border-radius: 10px;
+}
+.loginhuman{
+}
+.loginkey{
+}
+.login{
+	width : 500px;
+	height: 50px;
+	background-color: black;
+	color: white;
+	text-align: center;
+}
+.join{
+	width : 500px;
+	height: 50px;
+	background-color: black;
+	color: white;
+}

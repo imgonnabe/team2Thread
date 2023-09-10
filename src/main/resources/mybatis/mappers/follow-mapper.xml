@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="follow">
+<select id="infoboardlist" parameterType="Map" resultType="threadDTO"> SELECT * FROM myBoardview WHERE m_id=#{mid} </select>
+<select id="info" parameterType="String" resultType="Map"> SELECT m_no, m_id, m_name, m_intro, m_profileImage, m_birth, fcount, f2count from ThreadMember Where m_id =#{id} </select>
+<insert id="follow" parameterType="Map"> INSERT INTO Follow (touser, fromuser, m_id, m_id2) VALUES((select m_no from ThreadMember where m_id=#{tof}), (select m_no from ThreadMember where m_id=#{fromf}), #{tof}, #{fromf}) </insert>
+<update id="fUpdate" parameterType="String"> UPDATE ThreadMember SET fcount = fcount+1 WHERE m_id = #{tof} </update>
+<update id="f2Update" parameterType="String"> UPDATE ThreadMember SET f2count = f2count+1 WHERE m_id = #{fromf} </update>
+<select id="checkFollow" parameterType="Map" resultType="Integer"> select count(*) from Follow Where fromuser = (select m_no from ThreadMember where m_id = #{fromf}) and touser = (select m_no from ThreadMember where m_id = #{tof}) </select>
+<select id="following" parameterType="Map" resultType="Integer"> SELECT count(*) from Follow where fromUser = (SELECT m_no from ThreadMember where m_id = #{mid}) AND toUser = (SELECT m_no from ThreadMember where m_id = #{id}) </select>
+<select id="getMid2" parameterType="String" resultType="Map"> select m_id2 from Follow Where m_id = #{id} </select>
+<delete id="unFollow" parameterType="Map"> DELETE FROM Follow WHERE toUser = (SELECT m_no From ThreadMember Where m_id = #{tof}) AND fromUser = (SELECT m_no From ThreadMember Where m_id = #{fromf}) </delete>
+<update id="unUpdate" parameterType="String"> UPDATE ThreadMember SET fcount = fcount-1 WHERE m_id = #{tof} </update>
+<update id="unUpdate2" parameterType="String"> UPDATE ThreadMember SET f2count = f2count-1 WHERE m_id = #{fromf} </update>
+</mapper>

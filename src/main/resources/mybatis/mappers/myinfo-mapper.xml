@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myinfo">
+	<select id="myinfo" parameterType="string" resultType="loginDTO"> 
+	SELECT * FROM ThreadMember WHERE m_id=#{mid} 
+	</select>
+	<update id="changeinfo" parameterType="Map"> 
+		update ThreadMember set m_intro = #{intro} where m_id = #{id} 
+	</update>
+	<select id="myboardlist" parameterType="Map" resultType="threadDTO"> 
+		SELECT * FROM myBoardview WHERE m_id=#{mid} 
+	</select>
+	<select id="checkpw" parameterType="String" resultType="Integer"> 
+		SELECT COUNT(*) as count FROM ThreadMember WHERE m_pw=#{memberPw} 
+	</select>
+	<update id="pwupdate" parameterType="Map"> 
+		update ThreadMember set m_pw = #{memberPw2} where m_id = #{id} 
+	</update>
+</mapper>

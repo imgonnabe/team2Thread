@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.lg-img {
+	margin-top:20px;
+	text-align: center;
+}
+
+#m_id{
+	font-size: large;
+	font-weight: bold;
+}
+
+.content{
+	padding: 3px;
+	border: solid black 2px;
+}
+
+.btn{
+	position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    background-color: #fdfd96;
+}
+
+
+.btn:hover {
+    background-color: #dfd880;
+    transition: 0.7s;
+}

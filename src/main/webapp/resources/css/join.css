@@ -1,0 +1,83 @@
+@charset "UTF-8";
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fffbe6;
+}
+
+.logo{
+	text-align: center;
+	margin-top: 20px;
+}
+
+#thread-logo{
+	height: 60px;
+	display: inline-block;
+}
+
+.join-div {
+    background-color: #fffbe6;
+    padding: 20px;
+    width: 500px;
+    margin: 30px auto;
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.label-name {
+    flex: 1;
+    color: #555;
+    font-weight: bold;
+}
+
+.label-in {
+    flex: 3;
+}
+
+.label-in input[type="text"],
+.label-in input[type="password"],
+.label-in select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.label-in span {
+    color: red;
+    font-size: 12px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fffbe6;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	text-align: center;
+}
+
+#btn img {
+    display: inline-block;
+    width: auto;
+    height: 20px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}

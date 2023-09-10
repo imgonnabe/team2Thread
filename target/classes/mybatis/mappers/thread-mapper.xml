@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="thread">
+
+	<select id="threadList" resultType="threadDTO">
+		SELECT * FROM ThreadBoardview ORDER BY bno DESC
+	</select>
+	
+	<insert id="write" parameterType="threadDTO"> 
+		INSERT INTO ThreadBoard (bcontent, m_no) values (#{bcontent},(select m_no from ThreadMember where m_id=#{m_id})) 
+	</insert>
+
+	<select id="detail" parameterType="threadDTO" resultType="threadDTO">
+		select * from ThreadBoardview where bno = #{bno}
+		<if test="m_id != null"> and m_id=#{m_id} </if>
+	</select>
+	
+	<update id="edit" parameterType="threadDTO"> 
+		update ThreadBoard set bcontent=#{bcontent} where bno=#{bno} 
+	</update>
+	
+	<update id="delete" parameterType="threadDTO"> 
+		update ThreadBoard set b_del = 0 where bno=#{bno} and m_no=(select m_no from ThreadMember where m_id=#{m_id}) 
+	</update>
+	
+	<select id="commentList" parameterType="Integer" resultType="Map">
+		SELECT * FROM ThreadCommentsview WHERE bno=#{bno}
+	</select>
+	
+	<update id="cdel" parameterType="Map">
+		UPDATE ThreadComments SET c_del=0
+		WHERE bno=#{bno} AND cno=#{cno} AND m_no=(SELECT m_no FROM ThreadMember WHERE m_id=#{mid})
+	</update>
+	
+	<update id="cedit" parameterType="Map">
+		UPDATE ThreadComments SET c_comment=#{recomment}
+		WHERE bno=#{bno} AND cno=#{cno} AND m_no=(SELECT m_no FROM ThreadMember WHERE m_id=#{mid})
+	</update>
+	
+	<update id="clikeUp" parameterType="Map"> 
+		UPDATE ThreadComments SET c_like= c_like + 1
+		WHERE bno=#{bno} AND cno=#{cno} 
+	</update>
+
+</mapper>

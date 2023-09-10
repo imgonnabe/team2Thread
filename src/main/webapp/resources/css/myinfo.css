@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+h1 {
+	font-size: 45px;
+	border-bottom: 1px solid gray;
+	margin: 0px;
+	padding: 20px;
+}
+
+.introbox {
+	padding: 20px;
+	border-bottom: 1px solid gray;
+}
+
+.profile {
+	color: white;
+	background-color: black;
+	width: 100px;
+	margin : 10px;
+	padding: 10px;
+}
+
+table {
+	width: 100%;
+	border: 1px solid #444444;
+}
+
+span {
+	color: gray;
+}
+
+.tdate {
+	background-color: #eceae0;
+	color: black;
+	margin-bottom: 15px;
+	padding: 10px;
+}
+
+.tcont {
+	margin: 30px;
+	padding: 30px;
+	padding-left: 10px;
+	border-bottom: 1px solid gray;
+	height: auto;
+}
+
+.like{
+	padding: 10px;
+	font-weight: bold;
+}
